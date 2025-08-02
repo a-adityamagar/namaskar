@@ -47,12 +47,12 @@ const Rooms = () => {
   };
 
   const features = [
-    { icon: Wifi, text: 'High-Speed WiFi' },
-    { icon: Car, text: 'Free Parking' },
-    { icon: Coffee, text: '24/7 Room Service' },
-    { icon: Utensils, text: 'In-Room Dining' },
-    { icon: Bath, text: 'Luxury Bathroom' },
-    { icon: Tv, text: 'Smart Entertainment' }
+    { icon: Wifi, title: 'High-Speed', subtitle: 'WiFi' },
+    { icon: Car, title: 'Free', subtitle: 'Parking' },
+    { icon: Coffee, title: '24/7 Room', subtitle: 'Service' },
+    { icon: Utensils, title: 'In-Room', subtitle: 'Dining' },
+    { icon: Bath, title: 'Luxury', subtitle: 'Bathroom' },
+    { icon: Tv, title: 'Smart', subtitle: 'Entertainment' }
   ];
 
   return (
@@ -178,7 +178,7 @@ const Rooms = () => {
           </motion.div>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Redesigned Cards without Hover */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           initial={{ opacity: 0, y: 50 }}
@@ -188,18 +188,29 @@ const Rooms = () => {
         >
           {features.map((feature, index) => (
             <motion.div
-              key={feature.text}
-              className="flex items-center space-x-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
+              key={feature.title + feature.subtitle}
+              className="bg-white border-2 border-maroon-300 rounded-lg p-8 text-center transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center">
-                <feature.icon className="w-5 h-5 text-maroon-600" />
-              </div>
-              <span className="font-medium text-slate-800 text-sm">{feature.text}</span>
+              {/* Icon */}
+              <motion.div
+                className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center border-2 border-maroon-200"
+              >
+                <feature.icon className="w-8 h-8 text-maroon-600" />
+              </motion.div>
+              
+              {/* Title */}
+              <h3 className="text-lg font-bold text-slate-800 mb-1">
+                {feature.title}
+              </h3>
+              
+              {/* Subtitle */}
+              <p className="text-base font-medium text-slate-700">
+                {feature.subtitle}
+              </p>
             </motion.div>
           ))}
         </motion.div>

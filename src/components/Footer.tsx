@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Crown, Sparkles } from 'lucide-react';
+import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Crown } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-maroon-700 via-maroon-800 to-maroon-900 text-white relative overflow-hidden">
+    <footer className="bg-maroon-800 text-white relative ">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -47,7 +47,6 @@ const Footer = () => {
               <div>
                 <h3 className="text-lg md:text-xl font-serif font-bold">Namaskar Regency</h3>
                 <div className="flex items-center space-x-1">
-                  <Sparkles className="w-3 h-3 text-yellow-400" />
                   <p className="text-yellow-200 text-xs">Luxury & Comfort</p>
                 </div>
               </div>
@@ -237,7 +236,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="text-slate-300 text-xs mb-4 lg:mb-0 text-center lg:text-left">
-            © 2024 Namaskar Regency. All rights reserved. | Crafted with ❤️ for exceptional hospitality
+            © 2024 Namaskar Regency. All rights reserved. | Crafted with heart for exceptional hospitality
           </p>
           <div className="flex flex-wrap justify-center lg:justify-end space-x-4 text-xs">
             <a href="#" className="text-slate-300 hover:text-yellow-300 transition-colors">

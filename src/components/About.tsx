@@ -69,51 +69,50 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 bg-gradient-to-br from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white/95">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
             <motion.h2 
-              className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4"
-              initial={{ opacity: 0, y: 30 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-serif font-extrabold text-slate-800 mb-4 sm:mb-6 leading-tight tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Experience Luxury at
+              Discover Luxury at
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-maroon-600 to-maroon-700 block">
                 Namaskar Regency
               </span>
             </motion.h2>
             
             <motion.p 
-              className="text-base text-slate-600 mb-6 leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
+              className="text-sm sm:text-base md:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed max-w-xl"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Located in the heart of Kathmandu, Namaskar Regency offers the perfect blend of traditional 
-              Nepalese hospitality and modern comfort. Our commitment to excellence ensures every guest 
-              experiences exceptional service.
+              Nestled in the vibrant heart of Kathmandu, Namaskar Regency blends traditional Nepalese hospitality with modern elegance, ensuring every guest enjoys an unforgettable stay.
             </motion.p>
 
             <motion.button
-              className="bg-gradient-to-r from-maroon-600 to-maroon-700 text-white px-6 py-3 rounded-lg font-medium hover:from-maroon-700 hover:to-maroon-800 transition-all"
-              initial={{ opacity: 0, y: 30 }}
+              className="relative bg-gradient-to-r from-maroon-600 to-maroon-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300 group overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Learn More
+              <div className="absolute inset-0 bg-gradient-to-r from-maroon-500 to-maroon-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative">Learn More</span>
             </motion.button>
           </motion.div>
 
@@ -122,22 +121,22 @@ const About = () => {
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <div className="relative rounded-xl overflow-hidden shadow-xl">
+            <div className="relative rounded-2xl shadow-lg">
               {/* Image Carousel */}
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative h-64 sm:h-80 md:h-96">
                 {carouselImages.map((image, index) => (
                   <motion.div
                     key={index}
                     className="absolute inset-0"
-                    initial={{ opacity: 0, scale: 1.1 }}
+                    initial={{ opacity: 0, scale: 1.05 }}
                     animate={{
                       opacity: currentImageIndex === index ? 1 : 0,
-                      scale: currentImageIndex === index ? 1 : 1.1,
+                      scale: currentImageIndex === index ? 1 : 1.05,
                     }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{ duration: 1.2, ease: 'easeInOut' }}
                   >
                     <img
                       src={image.src}
@@ -148,17 +147,17 @@ const About = () => {
                 ))}
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 
                 {/* Image Title Overlay */}
                 <motion.div
                   key={currentImageIndex}
-                  className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 shadow-md"
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h4 className="text-slate-800 font-semibold text-sm">
+                  <h4 className="text-slate-800 font-semibold text-sm sm:text-base">
                     {carouselImages[currentImageIndex].title}
                   </h4>
                 </motion.div>
@@ -170,61 +169,71 @@ const About = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       currentImageIndex === index 
-                        ? 'bg-yellow-400 w-6' 
-                        : 'bg-white/60 hover:bg-white/80'
+                        ? 'bg-yellow-400 w-6 sm:w-8' 
+                        : 'bg-white/70 hover:bg-white/90'
                     }`}
                   />
                 ))}
               </div>
+
+              {/* Rating Card - Moved to Top-Left with Overflow */}
+              <motion.div
+                className="absolute -top-4 sm:-top-6 -left-4 sm:-left-6 bg-white rounded-xl p-3 sm:p-4 shadow-lg border border-slate-100/50"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                viewport={{ once: true }}
+                style={{ zIndex: 10 }} // Ensure it stays above other elements
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
+                    <Award className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-800 text-sm sm:text-base">4.9/5</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm">Excellent</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-            
-            {/* Rating Card */}
-            <motion.div
-              className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800">4.9/5</h3>
-                  <p className="text-slate-600 text-sm">Excellent</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Redesigned Cards without Hover */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="text-center p-5 rounded-xl bg-white shadow-md border border-slate-100 hover:shadow-lg transition-all"
+              className="bg-white border-2 border-maroon-300 rounded-lg p-8 text-center transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.02 }}
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                <feature.icon className="w-6 h-6 text-maroon-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-slate-800 mb-2">{feature.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+              {/* Icon */}
+              <motion.div
+                className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center border-2 border-maroon-200"
+              >
+                <feature.icon className="w-8 h-8 text-maroon-600" />
+              </motion.div>
+              
+              {/* Title */}
+              <h3 className="text-lg font-bold text-slate-800 mb-1">
+                {feature.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-base font-medium text-slate-700">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

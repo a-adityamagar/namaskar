@@ -146,7 +146,7 @@ const Gallery = () => {
           </motion.div>
 
           {/* Stats */}
-          <motion.div
+          {/* <motion.div
             className="text-center mt-8 md:mt-12 p-4 md:p-6 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -170,7 +170,7 @@ const Gallery = () => {
                 <p className="text-xs md:text-sm text-slate-600">Categories</p>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
